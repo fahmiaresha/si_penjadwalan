@@ -1106,6 +1106,13 @@
             resetTimer();
         }
 
+       $(document).ready(function(){
+           setInterval(() => {
+               alert("Melewati Batas waktu pembayaran DP");
+            
+           }, 10000);
+       });
+
     </script>
 </body>
 </html>

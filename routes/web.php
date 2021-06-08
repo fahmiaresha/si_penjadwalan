@@ -289,6 +289,9 @@ Route::get('cek-nota/{id}', 'PanduanPembayaranController@cek_nota');
 Route::get('get_jenis_bayar/{id_jenis_bayar}/{id_sewa_bus}', 'PanduanPembayaranController@jenis_bayar');
 
 
+Route::get('stripe', 'StripePaymentController@stripe');
+Route::post('stripe', 'StripePaymentController@stripePost')->name('stripe.post');
+
 //====================================================================================
 
 Route::get('orders', function () {

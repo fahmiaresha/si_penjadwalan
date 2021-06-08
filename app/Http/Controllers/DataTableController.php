@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Session;
 use DB;
 use PDF;
 use Redirect;
+use Carbon\Carbon;
 
 class DataTableController extends Controller
 {
@@ -266,10 +267,18 @@ class DataTableController extends Controller
 
     public function store_schedule(Request $request)
     {
+        $cat=DB::table('sewa_bus_category')->find($request->id);
+
+        $temp=DB::table('pricelist_sewa_armada')
+        ->select('ID_PRICELIST', 'JUMLAH_HARI')
+        ->where('ID_PRICELIST', $cat->ID_PRICELIST)
+        ->get()->first();
+        $durasi =$temp->JUMLAH_HARI;
+        $tgl_selesai=Carbon::createFromFormat('Y-m-d',$request->TGL_SEWA)->addDays($durasi);
         
             DB::table('schedule_armada')->insert([
                 'TGL_SEWA'          => $request->TGL_SEWA,
-                'TGL_AKHIR_SEWA'    => $request->TGL_AKHIR_SEWA,
+                'TGL_AKHIR_SEWA'    => $tgl_selesai,
                 'ID_ARMADA'         => $request->ID_ARMADA1,
                 'ID_SEWA_BUS'       => $request->ID_SEWA_BUS,
                 'STATUS_ARMADA'     => 0,
@@ -290,7 +299,8 @@ class DataTableController extends Controller
             // ]);
 
         
-            return Redirect::back()->with('insert','data berhasil di tambah');
+           return Redirect::back()->with('insert','data berhasil di tambah');
+        //    return response()->json($temp);
     }
 
     public function store_pembayaran(Request $request, $id)

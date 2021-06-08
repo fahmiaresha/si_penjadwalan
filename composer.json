@@ -16,7 +16,8 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "maatwebsite/excel": "^3.1",
-        "milon/barcode": "7.*"
+        "milon/barcode": "7.*",
+        "stripe/stripe-php": "^7.83"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

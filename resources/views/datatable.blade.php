@@ -368,7 +368,7 @@
                                                             <select name="id" class="form-control" id="id1" onchange="getTujuan()">
                                                                 @foreach($sewa_bus_category as $sbc)
                                                                
-                                                                    <option id="id1{{$sbc->id}}" value="{{$sbc->id}}" data-pricelist="{{$sbc->ID_PRICELIST}}">{{$sbc->TUJUAN_SEWA}}</option>
+                                                                    <option id="id1{{$sbc->id}}" value="{{$sbc->id}}" name="id"  data-pricelist="{{$sbc->ID_PRICELIST}}">{{$sbc->TUJUAN_SEWA}}</option>
                                                                 
                                                                 @endforeach                 
                                                             </select>

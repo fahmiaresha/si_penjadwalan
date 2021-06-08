@@ -39,6 +39,7 @@
                         <div class="d-md-flex justify-content-between align-items-center">
                             <!-- <img src="{{ url('asset/vegfoods/images/mdc.png') }}" alt="logo"> -->
                             <h1 class="text-xs-left m-b-0">#INV-{{$sb->ID_SEWA_BUS}}</h1>
+                            <h4 class="text-xs-right m-b-0">Batas Konfirmasi Pembayaran : </h4>
                         </div>
                         <hr class="m-t-b-50">
                         <div class="form-group row">

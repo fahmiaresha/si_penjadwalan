@@ -24,7 +24,8 @@
           <div class="row">
             <div class="col-md-12 text-center">
               <h1>Formulir Pemesanan Sewa Bus</h1>
-              <p style="font-danger">* Harga sudah termasuk biaya bensin dan biaya sopir</p>
+              <p style="font-danger">* Proses penyewaan dapat dilakukkan dan diproses di jam kerja (07.00 - 16.00 WIB).</p>
+              <p style="font-danger">* Harga sudah termasuk biaya bensin dan biaya sopir.</p>
               <hr>
             </div>
         <div class="col-md-8 text-left">
@@ -41,38 +42,17 @@
                       <div class="form-group row">
                         <label class="col-sm-4 control-label text-right">Category Bus :</label>
                         <div class="col-sm-8">
-                        <select name="ID_CATEGORY" class="form-control" id="ID_CATEGORY1" onchange="getHari()">
+                        <select name="ID_CATEGORY" class="form-control" id="ID_CATEGORY1" onchange="getTujuan()">
                                         @foreach($category_armada as $c)
                                        
                                         <option id="ID_CATEGORY1{{$c->ID_CATEGORY}}" value="{{$c->ID_CATEGORY}}" 
-                                        data-hari="{{$c->ID_CATEGORY}}">{{$c->NAMA_CATEGORY}}</option>
+                                        data-tujuan="{{$c->ID_CATEGORY}}">{{$c->NAMA_CATEGORY}}</option>
                                        
                                         @endforeach                 
                                         </select>
                       </div>
                       </div>
-                      <div class="form-group row">
-                        <label class="col-sm-4 control-label text-right">Jumlah Hari :</label>
-                        <div class="col-sm-8">
-                        <select name="JUMLAH_HARI" class="form-control" id="JUMLAH_HARI1" onchange="getTujuan()">
-                                      @foreach($pricelist_sewa_armada as $pr)
-                                       
-                                       <option id="JUMLAH_HARI1{{$pr->ID_HARI}}" value="{{$pr->ID_HARI}}" 
-                                       data-tujuan="{{$pr->JUMLAH_HARI}}">{{$pr->ID_HARI}} Hari</option>
-                                      
-                                       @endforeach                 
-                                       </select>
-                                        <!-- <option selected="selected">-- Pilih Hari --</option>
-                                                    <option value="1">1 Hari</option>
-                                                    <option value="2">2 Hari</option>
-                                                    <option value="3">3 Hari</option>
-                                                    <option value="4">4 Hari</option>
-                                                    <option value="5">5 Hari</option>
-                                                    <option value="6">6 Hari</option>
-                                                    <option value="7">7 Hari</option>
-                                        </select> -->
-                      </div>
-                      </div>
+                     
                       <div class="form-group row">
                         <label class="col-sm-4 control-label text-right">Tujuan Bus :</label>
                         <div class="col-sm-8">
@@ -207,20 +187,93 @@
                                 </div>
                               </p>
                               <hr>
-                              <!-- <p class="d-flex total-price">
+                              <p class="d-flex total-price">
                                 <span>Sisa Bayar</span>
                                 <div class="col-sm-12 col-md-1">
                                   <label>Rp.</label><br>
                                 </div>
-                                <div class="col-sm-12 col-md-2"> -->
-                                  <label id="total-val" type="hidden"></label><br>
-                                <!-- </div>
-                              </p> -->
+                                <div class="col-sm-12 col-md-2">
+                                  <label id="total-val"></label><br>
+                                </div>
+                              </p>
                             </div>
                           </div>
                         </div>
                       </div>
 	
+                      
+<hr>
+<button type="button" class="btn btn-primary mr-2 mb-2" data-toggle="modal" data-target="#exampleModal">
+  Baca Syarat & Ketentuan
+</button>
+
+<div class="modal" tabindex="-1" role="dialog" id="exampleModal">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Syarat dan Ketentuan</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <i class="ti-close"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p><h4>Selamat datang di www.mdctranslamongan.com</h4></p>
+
+<p>Disarankan sebelum melakukkan penyewaan lebih jauh, 
+Anda terlebih dahulu membaca dan memahami syarat dan ketentuan yang berlaku. 
+Syarat dan ketentuan berikut adalah ketentuan dalam penyewaan bus travel secara online.
+Dengan mengakses atau melakukkan penyewaan dalam Situs kami, 
+berarti Anda telah memahami dan menyetujui serta terikat dan tunduk dengan segala syarat dan ketentuan yang berlaku di Situs ini.</p>
+<hr>
+1. DEFINISI
+
+<p>Setiap kata atau istilah berikut yang digunakan di dalam Syarat dan Ketentuan ini memiliki arti seperti berikut di bawah, kecuali jika kata atau istilah yang bersangkutan di dalam pemakaiannya dengan tegas menentukan lain.</p>
+
+<p>1.1. “Kami”, berarti PT Dwi Cermat Indonesia selaku pemilik dan pengelola Situs serta aplikasi mobile yang bernama Cermati.</p>
+
+<p>1.2. “Anda”, berarti tiap orang yang mengakses Situs dan menggunakan layanan dan jasa yang disediakan oleh Kami.</p>
+
+<p>1.3. “Layanan”, berarti setiap dan keseluruhan jasa serta informasi yang ada pada Situs, termasuk namun tidak terbatas pada informasi yang disediakan, fitur dan layanan aplikasi, dukungan data, serta aplikasi mobile yang Kami sediakan.</p>
+
+<p>1.4. “Informasi Pribadi”, berarti tiap dan seluruh data pribadi yang diberikan oleh Pengguna di Situs Kami, termasuk namun tidak terbatas pada nama lengkap, alamat, nomor identitas/telephone.</p>
+
+<p>1.5. “Situs”, berarti www.mdctranslamongan.com</p>
+<hr>
+<p>2. LAYANAN DAN/ATAU JASA PENYEWAAN BUS TRAVEL</p>
+<p>Kami memberikan informasi mengenai kategori bus, tujuan bus, harga bus, jumlah hari, dan jumlah ketersediaan bus travel.
+Layanan ini memungkinkan Anda untuk dapat melihat, 
+menelaah, membaca, serta melakukkan proses penyewaan bus travel secara online berdasarkan informasi tersebut.</p>
+
+<p>2.1. Informasi yang terdapat dalam Situs Kami ditampilkan sesuai keadaan kenyataan untuk tujuan informasi yang Anda butuhkan. 
+Kami berusaha untuk selalu menyediakan dan menampilkan informasi yang terbaru dan akurat, 
+namun Kami tidak menjamin bahwa segala informasi sesuai dengan ketepatan waktu atau relevansi dengan kebutuhan Anda.</p>
+<p>2.2. Layanan yang Kami berikan tidak bersifat memaksa atau mengikat, 
+serta tidak mengharuskan Anda untuk mengikuti ketentuan yang tersedia. 
+Tidak ada situasi atau keadaan apapun yang dapat membuat Kami dikenakan tanggung jawab 
+atas kemungkinan kerugian yang Anda alami karena pengambilan keputusan yang dilakukan oleh Anda sendiri 
+terkait tindakan atas informasi dan ketentuan layanan yang kami sampaikan di Situs.</p>
+<p>2.3. Kami memiliki hak untuk kapan saja menampilkan, mengubah, menghapus, 
+menghilangkan, atau menambahkan segala konten yang ditampilkan dalam Situs ini.</p>
+<hr>
+<p>3. PENGGUNAAN LAYANAN DAN JASA PENYEWAAN BUS TRAVEL</p>
+<p>Dengan Anda melanjutkan penyewaan atau pengaksesan Situs ini, berarti Anda telah menyatakan serta menjamin kepada Kami bahwa :</p>
+<p>3.1. Waktu konfirmasi pembayaran setelah melakukkan booking (penyewaan bus travel) adalah selama 1 jam (satu jam).
+Selebihnya dari batas waktu yang ditentukkan tanpa adanya konfirmasi pembayaran/konfirmasi ke Admin, maka status penyewaan DIBATALKAN.</p>
+<p>3.2. Kami tidak bertanggung jawab atas kegagalan melakukkan penyewaan yang Anda inginkan, dan yang diluar kendali Kami.</p>
+<p>3.3 Jika Anda terlanjur transfer diluar jam batas, maka silahkan Anda konfirmasikan ke Admin untuk tindak lanjut 
+(apakah akan dilanjut sesuai petunjuk Admin atau uang akan direfund sebesar yang Anda transferkan).</p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<input type="checkbox" name="check1" value="Setuju">Saya telah membaca dan menyetujui syarat serta ketentuan yang berlaku.<br/>
+
                               <input type="hidden" name="idsewa" id="idsewa" value="">
                               <input type="hidden" name="sub" id="tot">
                               <input type="hidden" name="dpbus" id="depe">
@@ -228,12 +281,13 @@
                               <input type="hidden" name="durasi" id="durasi">
                               <th>&nbsp;</th>
                               <th>&nbsp;</th>
+                              <hr>
                               
                     <div class="form-group row" align="right">
                       <label class="col-sm-4 control-label"></label>
                       <div class="col-sm-8">
                         <div class="btn-group">
-                          <button type="submit" class="btn btn-info btn-lg" value="submit">
+                          <button type="submit" class="btn btn-info btn-lg" value="submit" id="booked">
                             <i class="fa fa-times"></i>Booking
                           </button>
                         </div>
@@ -290,7 +344,7 @@
 
 function getTgl() {
 var today = new Date();
-var day = today.getDate();
+var day = today.getDate()+2;
 var month = today.getMonth()+1;
 var year = today.getFullYear();
 if(month < 10){
@@ -301,25 +355,15 @@ if(day < 10){
 }
  var minToday = year+"-"+month+"-"+day;
  document.getElementById('tglsewa').setAttribute('min',minToday);
+ if(today.getHours()>16 || today.getHours()<7){
+  document.getElementById('booked').disabled=true;
+ }
+ else{
+  document.getElementById('booked').disabled=false;
+ }
 }
 
 getTgl();
-
-function getHari(){
-      var har = document.getElementById('ID_CATEGORY1').value;
-      $.ajax({
-           url:"{{url('hari')}}",
-            data:"days="+har,
-           dataType: "json",
-           type: "GET",
-           success:function(response){
-             $('#JUMLAH_HARI1').empty();
-             $.each(response.data, function(key,item){
-               $('#JUMLAH_HARI1').append('<option id="JUMLAH_HARI1'+item.ID_PRICELIST+'"  value"'+item.ID_CATEGORY+'" data-tujuan="'+item.JUMLAH_HARI+'">'+item.ID_HARI+'</option>');
-             });
-            }
-       });
-   }
    
    function getTujuan(){
     var cat = document.getElementById('ID_CATEGORY1').value;
@@ -332,7 +376,7 @@ function getHari(){
             // alert("Percoban");
                 $('#TUJUAN_SEWA1').empty();
                  $.each(response.data,function(key,item){
-                     $('#TUJUAN_SEWA1').append('<option id="TUJUAN_SEWA1'+item.ID_PRICELIST+'"  value"'+item.ID_HARI+'" data-pricelist="'+item.PRICELIST_SEWA+'">'+item.TUJUAN_SEWA+'</option>');
+                     $('#TUJUAN_SEWA1').append('<option id="TUJUAN_SEWA1'+item.ID_PRICELIST+'"  value"'+item.ID_CATEGORY+'" data-pricelist="'+item.PRICELIST_SEWA+'">'+item.TUJUAN_SEWA+'</option>');
                  });
            }
        });
