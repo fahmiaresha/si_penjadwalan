@@ -65,7 +65,7 @@ class PemesananController extends Controller
         ->get();
 
 
-        return view('pemesanan', ['sewa_bus' =>$sewa_bus,'customer'=>$customer], 
+        return view('pemesanan_bus', ['sewa_bus' =>$sewa_bus,'customer'=>$customer], 
         ['sewa_bus_category'=>$sewa_bus_category,'pricelist_sewa_armada'=>$pricelist_sewa_armada, 'category_armada'=>$category_armada, 'hari'=>$hari]);
     }
 
@@ -187,7 +187,7 @@ class PemesananController extends Controller
         $sewa_bus=DB::table('sewa_bus')
         ->join('customer', 'sewa_bus.ID_CUSTOMER', '=', 'customer.ID_CUSTOMER')
         ->join('pengguna', 'sewa_bus.ID_PENGGUNA', '=', 'pengguna.ID_PENGGUNA')
-        ->select('sewa_bus.*', 'customer.*', 'pengguna.*')
+        ->select('sewa_bus.*', 'customer.*', 'pengguna.*',DB::raw('addtime(created_at,"1:00:00") as bataswaktu'))
         ->get();
 
         $category_armada=DB::table('category_armada')->get();

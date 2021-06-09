@@ -120,9 +120,7 @@
                         <hr class="my-5">
                         <!-- Invoice of PT. MDC Trans -->
                         <!-- <a href="#" class="btn btn-primary">Send Invoice</a> -->
-                        <!-- <a href="stripe" class="btn btn-primary m-l-5" target="_blank">
-                            <i class="ti-printer mr-2"></i>Bayar
-                        </a> -->
+                       
                         <a href="cetak_bus" class="btn btn-success m-l-5" target="_blank">
                             <i class="ti-printer mr-2"></i> Print
                         </a>

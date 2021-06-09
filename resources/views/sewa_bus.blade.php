@@ -121,9 +121,9 @@
                                     <label for="statussewa" class="col-form-label">Status Sewa :</label>
                                     <select name="statussewa" class="form-control" id="statussewa">
                                         <option selected="selected">-- Status --</option>
-                                            <option>Booking</option>
+                                            <!-- <option>Booking</option> -->
                                             <option>On Schedule</option>
-                                            <option>DIBATALKAN</option>
+                                            <!-- <option>DIBATALKAN</option> -->
                                     </select>
                                     </div>
                                     </div>
@@ -164,6 +164,9 @@
                                     @endif
                                     @if($sb -> STATUS_SEWA == 'DIBATALKAN')
                                     <td><span class="badge bg-success-bright text-danger">{{ $sb -> STATUS_SEWA}}</span></td>
+                                    @endif
+                                    @if($sb -> STATUS_SEWA == 'Sudah Bayar')
+                                    <td><span class="badge bg-success-bright text-primary">{{ $sb -> STATUS_SEWA}}</span></td>
                                     @endif
                                     <td>{{ $sb -> ID_SEWA_BUS }}</td>
                                     <td>{{ $sb -> NAMA_PENGGUNA }}</td>

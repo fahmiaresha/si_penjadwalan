@@ -98,10 +98,10 @@
                                     <!-- <td>Rp. <?php echo number_format($sb->SISA_SEWA_BUS,'0',',','.'); ?></td> -->
                                     <td>Rp. <?php echo number_format($sb->JUMLAH_BAYAR,'0',',','.'); ?></td>
                                     <td class="text-center">
-                                    @if($sb-> ID_JENIS == '1')
+                                    @if($sb-> ID_JENIS == 1)
                                     <span class="text-danger"><h5>DP (25%)</h5></span>
                                     @endif
-                                    @if($sb-> ID_JENIS == '2')
+                                    @if($sb-> ID_JENIS == 2)
                                     <span class="text-success"><h5>Lunas</h5></span>
                                     @endif
                                     </td>

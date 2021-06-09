@@ -227,7 +227,7 @@ public function update_switch_paket(Request $request)
 
         $laporan_pembayaran=pembayaran::select(['pembayaran.id','pembayaran.ID_SEWA_BUS','pembayaran.TGL_BAYAR',
         'pembayaran.JUMLAH_BAYAR', 'customer.NAMA_CUSTOMER', 'pembayaran.STATUS_BAYAR', 'pembayaran.ID_JENIS', 'jenis_bayar.JENIS_BAYAR'])
-        ->join('jenis_bayar', 'pembayaran.ID_BAYAR', 'jenis_bayar.ID_BAYAR')
+        ->join('jenis_bayar', 'pembayaran.ID_JENIS', 'jenis_bayar.ID_JENIS')
         ->join('sewa_bus', 'pembayaran.ID_SEWA_BUS', 'sewa_bus.ID_SEWA_BUS')
         ->join('customer', 'sewa_bus.ID_CUSTOMER', 'customer.ID_CUSTOMER')
         ->whereBetween('pembayaran.tgl', [$tgl_awal, $tgl_akhir])

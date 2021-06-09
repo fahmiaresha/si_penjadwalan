@@ -91,17 +91,26 @@
                                             @if($sewa_bus-> STATUS_SEWA == 'Booking')
                                                 <option selected="selected" value="Booking">Booking</option>
                                                     <option value="On Schedule">On Schedule</option>
-                                                    <option value="Lunas">DIBATALKAN</option>
+                                                    <option value="DIBATALKAN">DIBATALKAN</option>
+                                                    <option value="Sudah Bayar">Sudah Bayar</option>
                                             @endif
                                             @if($sewa_bus-> STATUS_SEWA == 'On Schedule')
                                             <option selected="selected" value="On Schedule">On Schedule</option>
                                                     <option value="Booking">Booking</option>
-                                                    <option value="Lunas">DIBATALKAN</option>
+                                                    <option value="DIBATALKAN">DIBATALKAN</option>
+                                                    <option value="Sudah Bayar">Sudah Bayar</option>
                                             @endif
                                             @if($sewa_bus-> STATUS_SEWA == 'DIBATALKAN')
-                                            <option selected="selected" value="Lunas">DIBATALKAN</option>
+                                            <option selected="selected" value="DIBATALKAN">DIBATALKAN</option>
                                                     <option value="On Schedule">On Schedule</option>
                                                     <option value="Booking">Booking</option>
+                                                    <option value="Sudah Bayar">Sudah Bayar</option>
+                                            @endif
+                                            @if($sewa_bus-> STATUS_SEWA == 'Sudah Bayar')
+                                            <option selected="selected" value="Sudah Bayar">Sudah Bayar</option>
+                                                    <option value="On Schedule">On Schedule</option>
+                                                    <option value="Booking">Booking</option>
+                                                    <option value="Booking">DIBATALKAN</option>
                                             @endif
                                             </select>
                                             </div>

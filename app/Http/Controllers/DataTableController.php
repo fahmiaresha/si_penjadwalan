@@ -449,6 +449,18 @@ class DataTableController extends Controller
         return redirect('sewa_bus');
     }
 
+    public function update_otomatis(){
+        $result=DB::table('sewa_bus')
+        ->where('STATUS_SEWA', '=', 'Booking')
+        ->whereRaw('time_to_sec(timediff(CURRENT_TIMESTAMP,created_at))>?',10)
+        ->update([
+            'STATUS'=>0,
+            'STATUS_SEWA'=>'DIBATALKAN'
+        ]);
+        return $result;
+        // UPDATE `sewa_bus` SET `STATUS`=0 WHERE time_to_sec(timediff(CURRENT_TIMESTAMP,created_at))  > 3600
+    }
+
     public function getTujuan(){
         // $tmp = DB::table('armada')->where('ID_CATEGORY', request()->category)
         // ->get();

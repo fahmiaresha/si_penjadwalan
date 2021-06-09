@@ -74,14 +74,14 @@
                 <!-- <a class="dropdown-item" href="{{ url('detailpaket') }}">Paket Wisata</a> -->
                 <!-- <a class="dropdown-item" href="{{ url('detailpaket') }}">Informasi Paket Wisata</a> -->
                 <!-- <a class="dropdown-item" href="{{ url('cart') }}">Cart</a> -->
-                <a class="dropdown-item" href="{{ url('pemesanan') }}">Booking Bus</a>
+                <a class="dropdown-item" href="{{ url('pemesanan_bus') }}">Booking Bus</a>
                 <!-- <a class="dropdown-item" href="{{ url('pemesanan_paket') }}">Booking Packages</a> -->
               </div>
             </li>
 	          <li class="nav-item"><a href="{{ url('about') }}" class="nav-link">About</a></li>
 	          <!-- <li class="nav-item"><a href="{{ url('testimony') }}" class="nav-link">Testimony</a></li> -->
 	          <li class="nav-item"><a href="{{ url('contact') }}" class="nav-link">Contact</a></li>
-	          <li class="nav-item cta cta-colored"><a href="{{ url('pemesanan') }}" class="nav-link"><span class="icon-bus"></span></a></li>
+	          <li class="nav-item cta cta-colored"><a href="{{ url('pemesanan_bus') }}" class="nav-link"><span class="icon-bus"></span></a></li>
 
 	        </ul>
 	      </div>

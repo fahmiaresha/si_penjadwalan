@@ -25,7 +25,7 @@
             <div class="col-md-12 text-center">
               <h1>Formulir Pemesanan Sewa Bus</h1>
               <hr>
-              <!-- <p style="font-danger">* Proses pemesanan dapat dilakukkan dan diproses hari Senin-Sabtu dijam kerja (08.00 - 15.00 WIB).</p> -->
+              <p style="font-danger">* Proses pemesanan dapat dilakukkan dan diproses hari Senin-Sabtu dijam kerja (08.00 - 15.00 WIB).</p>
               <p style="font-danger">* Pemesanan Bus Travel hanya bisa dilakukkan minimal 2 hari dari hari sekarang.</p>
               <p style="font-danger">* Harga sudah termasuk biaya bensin dan biaya sopir.</p>
               <hr>
@@ -274,7 +274,7 @@ Selebihnya dari batas waktu yang ditentukkan tanpa adanya konfirmasi pembayaran/
   </div>
 </div>
 <hr>
-<input type="checkbox" name="check1" value="Setuju">Saya telah membaca dan menyetujui syarat serta ketentuan yang berlaku.<br/>
+<input type="checkbox" name="check1" value="Setuju" id="setuju" onclick="checkboxpersetujuan()">Saya telah membaca dan menyetujui syarat serta ketentuan yang berlaku.<br/>
 
                               <input type="hidden" name="idsewa" id="idsewa" value="">
                               <input type="hidden" name="sub" id="tot">
@@ -344,6 +344,23 @@ Selebihnya dari batas waktu yang ditentukkan tanpa adanya konfirmasi pembayaran/
 
 <script>
 
+function checkboxpersetujuan(){
+    var x=document.getElementById('setuju');
+    var y=document.getElementById('booked');
+    var today= new Date();
+    if(x.checked==false ){
+        y.disabled=true;
+    }else{
+      if(today.getHours()>15 || today.getHours()<8 || today.getDay()==0){
+        y.disabled=true;
+      }else{
+        y.disabled=false;
+      }
+    }
+
+}
+checkboxpersetujuan();
+
 function getTgl() {
 var today = new Date();
 var day = today.getDate()+2;
@@ -361,10 +378,11 @@ if(day < 10){
   document.getElementById('booked').disabled=true;
       Swal.fire(
           'Maaf!',
-          'Pemesanan hanya bisa dilakukkan Hari Senin-Sabtu dijam kerja (08.00-15.00 WIB)!',
+          'Pemesanan hanya bisa dilakukkan pada Hari Senin-Sabtu dijam kerja (08.00-15.00 WIB)!',
           'warning'
       )
   // alert('harus di jam kerja');
+  document.getElementById('booked').disabled=true;
  }
  else{
   document.getElementById('booked').disabled=false;

@@ -1108,10 +1108,20 @@
 
        $(document).ready(function(){
            setInterval(() => {
-               alert("Melewati Batas waktu pembayaran DP");
+            // alert("Melewati Batas waktu pembayaran");
+               $.ajax({
+                url:"{{url('status-sewa')}}",
+                type: "GET",
+                success:function(response){
+                    if(response!=0){
+                        alert("Melewati Batas waktu pembayaran DP");
+                    }
+                }
+            });
             
            }, 10000);
        });
+       
 
     </script>
 </body>

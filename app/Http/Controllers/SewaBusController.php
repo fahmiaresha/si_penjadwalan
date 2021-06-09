@@ -227,10 +227,11 @@ class SewaBusController extends Controller
 
         $laporan_pembayaran=pembayaran::select(['pembayaran.id','pembayaran.ID_SEWA_BUS','pembayaran.TGL_BAYAR', 'pembayaran.JUMLAH_BAYAR',
             'pembayaran.JUMLAH_BAYAR', 'customer.NAMA_CUSTOMER', 'pembayaran.STATUS_BAYAR', 'pembayaran.JENIS_BAYAR',
-            'pricelist_sewa_armada.TUJUAN_SEWA', 'pricelist_sewa_armada.PRICELIST_SEWA', 'sewa_bus_category.DISCOUNT',
+            'pricelist_sewa_armada.TUJUAN_SEWA', 'pricelist_sewa_armada.PRICELIST_SEWA', 'sewa_bus_category.DISCOUNT', 'pembayaran.ID_JENIS',
             'sewa_bus.TGL_SEWA_BUS', 'sewa_bus.DP_BUS', 'sewa_bus.total_payment', 'sewa_bus_category.QUANTITY', 'sewa_bus.SISA_SEWA_BUS']) 
             ->join('sewa_bus', 'pembayaran.ID_SEWA_BUS', 'sewa_bus.ID_SEWA_BUS')
             ->join('customer', 'sewa_bus.ID_CUSTOMER', 'customer.ID_CUSTOMER')
+            ->join('jenis_bayar', 'pembayaran.ID_JENIS', 'jenis_bayar.ID_JENIS')
             ->join('sewa_bus_category', 'sewa_bus.ID_SEWA_BUS', 'sewa_bus_category.ID_SEWA_BUS')
             ->join('pricelist_sewa_armada','sewa_bus_category.ID_PRICELIST', '=', 'pricelist_sewa_armada.ID_PRICELIST')
             ->join('category_armada', 'pricelist_sewa_armada.ID_CATEGORY', '=', 'category_armada.ID_CATEGORY')

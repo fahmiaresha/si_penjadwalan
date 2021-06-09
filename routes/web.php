@@ -261,7 +261,7 @@ Route::get('cara_pesan', 'ContactController@index_pesan');
 
 //===============================================================================
 
-Route::get('pemesanan', 'PemesananController@indexawal');
+Route::get('pemesanan_bus', 'PemesananController@indexawal');
 Route::post('pemesanan_store', 'PemesananController@store');
 Route::get('front_invoice', 'PemesananController@pdf');
 Route::get('cetak_bus', 'PemesananController@cetak_bus');
@@ -291,6 +291,8 @@ Route::get('get_jenis_bayar/{id_jenis_bayar}/{id_sewa_bus}', 'PanduanPembayaranC
 
 Route::get('stripe', 'StripePaymentController@stripe');
 Route::post('stripe', 'StripePaymentController@stripePost')->name('stripe.post');
+
+Route::get('status-sewa', 'DataTableController@update_otomatis');
 
 //====================================================================================
 
