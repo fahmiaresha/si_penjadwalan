@@ -452,7 +452,7 @@ class DataTableController extends Controller
     public function update_otomatis(){
         $result=DB::table('sewa_bus')
         ->where('STATUS_SEWA', '=', 'Booking')
-        ->whereRaw('time_to_sec(timediff(CURRENT_TIMESTAMP,created_at))>?',10)
+        ->whereRaw('time_to_sec(timediff(CURRENT_TIMESTAMP,created_at))>?',60)
         ->update([
             'STATUS'=>0,
             'STATUS_SEWA'=>'DIBATALKAN'

@@ -456,8 +456,8 @@ class PemesananController extends Controller
         $array = json_decode(json_encode($x),true);
 
         $y = DB::table('pricelist_sewa_armada')
-        ->join('vw_bus_ready', 'vw_bus_ready.ID_CATEGORY', '=', 'pricelist_sewa_armada.ID_CATEGORY')
-         ->where('vw_bus_ready.jmlbis','>',$array[0]['jml'])
+        ->join('vw_bus_ready_4', 'vw_bus_ready_4.ID_CATEGORY', '=', 'pricelist_sewa_armada.ID_CATEGORY')
+         ->where('vw_bus_ready_4.jmlbis','>',$array[0]['jml'])
         // ->orWhereNotIn('ID_PRICELIST', $array)
         ->Where('TUJUAN_SEWA',  '=', request()->tuj)
         ->Where('pricelist_sewa_armada.ID_CATEGORY',  '=', request()->cat1)
