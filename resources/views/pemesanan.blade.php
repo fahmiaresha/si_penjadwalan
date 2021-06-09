@@ -2,7 +2,7 @@
 
 
 @section('container')
-
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <div class="hero-wrap hero-bread" style="background-image: url('asset/vegfoods/images/baground2.jpeg');">
       <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -24,7 +24,9 @@
           <div class="row">
             <div class="col-md-12 text-center">
               <h1>Formulir Pemesanan Sewa Bus</h1>
-              <p style="font-danger">* Proses penyewaan dapat dilakukkan dan diproses di jam kerja (07.00 - 16.00 WIB).</p>
+              <hr>
+              <p style="font-danger">* Proses pemesanan dapat dilakukkan dan diproses di jam kerja (08.00 - 15.00 WIB).</p>
+              <p style="font-danger">* Pemesanan Bus Travel hanya bisa dilakukkan minimal 2 hari dari hari sekarang.</p>
               <p style="font-danger">* Harga sudah termasuk biaya bensin dan biaya sopir.</p>
               <hr>
             </div>
@@ -235,9 +237,9 @@ berarti Anda telah memahami dan menyetujui serta terikat dan tunduk dengan segal
 
 <p>1.3. “Layanan”, berarti setiap dan keseluruhan jasa serta informasi yang ada pada Situs, termasuk namun tidak terbatas pada informasi yang disediakan, fitur dan layanan aplikasi, dukungan data, serta aplikasi mobile yang Kami sediakan.</p>
 
-<p>1.4. “Informasi Pribadi”, berarti tiap dan seluruh data pribadi yang diberikan oleh Pengguna di Situs Kami, termasuk namun tidak terbatas pada nama lengkap, alamat, nomor identitas/telephone.</p>
+<!-- <p>1.4. “Informasi Pribadi”, berarti tiap dan seluruh data pribadi yang diberikan oleh Pengguna di Situs Kami, termasuk namun tidak terbatas pada nama lengkap, alamat, nomor identitas/telephone.</p> -->
 
-<p>1.5. “Situs”, berarti www.mdctranslamongan.com</p>
+<p>1.4. “Situs”, berarti www.mdctranslamongan.com</p>
 <hr>
 <p>2. LAYANAN DAN/ATAU JASA PENYEWAAN BUS TRAVEL</p>
 <p>Kami memberikan informasi mengenai kategori bus, tujuan bus, harga bus, jumlah hari, dan jumlah ketersediaan bus travel.
@@ -355,8 +357,14 @@ if(day < 10){
 }
  var minToday = year+"-"+month+"-"+day;
  document.getElementById('tglsewa').setAttribute('min',minToday);
- if(today.getHours()>16 || today.getHours()<7){
+ if(today.getHours()>15 || today.getHours()<8){
   document.getElementById('booked').disabled=true;
+      Swal.fire(
+          'Maaf!',
+          'Pemesanan hanya bisa dilakukkan dijam kerja (08.00-15.00 WIB)!',
+          'warning'
+      )
+  // alert('harus di jam kerja');
  }
  else{
   document.getElementById('booked').disabled=false;
