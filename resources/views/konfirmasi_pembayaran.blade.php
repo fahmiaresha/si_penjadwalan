@@ -46,7 +46,7 @@
                                             <input type="text" class="form-control" id="ID_SEWA_BUS" name="ID_SEWA_BUS" placeholder="Masukkkan nomor invoice Anda (for example : 201226001)">
                                     </div>
                                     <div class="col-md-2 mt-5 mb-2" >
-                                            <button class="btn btn-primary btn-block" onclick="event.preventDefault();cekNota()">Check</button>
+                                            <button class="btn btn-primary btn-block" id="cek" onclick="event.preventDefault();cekNota()">Check</button>
                                         </div>
                                 </div>
                                 <div id="bayar"></div>
@@ -406,6 +406,22 @@ function append_html_dua(){
             });
          });
 }
+
+var today = new Date();
+if(today.getHours()>15 || today.getHours()<8 || today.getDay()==0){
+  document.getElementById('cek').disabled=true;
+      Swal.fire(
+          'Maaf!',
+          'Konfirmasi Pembayaran hanya bisa dilakukkan pada Hari Senin-Sabtu dijam kerja (08.00-15.00 WIB)! Silahkan menghubungi Admin!',
+          'warning'
+      )
+      document.getElementById('cek').disabled=true;
+ }
+ else{
+  document.getElementById('cek').disabled=false;
+ }
+
+
 </script>
 
 @endsection

@@ -293,6 +293,7 @@ Route::get('stripe', 'StripePaymentController@stripe');
 Route::post('stripe', 'StripePaymentController@stripePost')->name('stripe.post');
 
 Route::get('status-sewa', 'DataTableController@update_otomatis');
+Route::get('status-bayar', 'DataTableController@update_bayar');
 
 //====================================================================================
 

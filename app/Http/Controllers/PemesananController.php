@@ -166,6 +166,10 @@ class PemesananController extends Controller
         ->select('sewa_bus.*', 'customer.*', 'pengguna.*')
         ->get();
 
+        $bus=DB::table('view_bus_ready_2')
+    ->select('jmlbis')
+    ->get();
+
         $category_armada=DB::table('category_armada')->get();
         $pricelist_sewa_armada=DB::table('pricelist_sewa_armada')->get();
         $sewa_bus_category=DB::table('sewa_bus_category')
@@ -178,7 +182,7 @@ class PemesananController extends Controller
         ->get();
 
 
-        return view('front_invoice',['sewa_bus'=>$sewa_bus],
+        return view('front_invoice',['sewa_bus'=>$sewa_bus, 'bus'=>$bus],
         ['sewa_bus_category'=>$sewa_bus_category, 'pricelist_sewa_armada'=>$pricelist_sewa_armada, 'category_armada'=>$category_armada]);
     }
 
@@ -330,11 +334,16 @@ class PemesananController extends Controller
                 'total_payment' => $request->sub
         ]);
             
+        // dump($id);
 
+    $bus=DB::table('sewa_bus_category')
+    ->where('ID_SEWA_BUS', '=', $id)
+    ->first();
 
-
+    // dump($bus);
      //return redirect('pemesanan', ['sewa_bus_category'=>$sewa_bus_category]);     
-     return Redirect::to('front_invoice')->with(['id'=>$id,'succes' => 'Alread Apply for this post']);  
+    //  return view('front_invoice',['bus'=>$bus])
+     return Redirect::to('front_invoice')->with(['succes' => 'Alread Apply for this post','bus'=>$bus]);  
        //return redirect('invoice');       
     }
 

@@ -433,9 +433,9 @@ class DataTableController extends Controller
                 'ID_PENGGUNA'       => $request->ID_PENGGUNA,
                 'JAM_SEWA'          => $request->JAM_SEWA,
                 'JAM_AKHIR_SEWA'    => $request->JAM_AKHIR_SEWA,
-                'DP_BUS'            =>  $request->subtotal,
-                'total_payment'     =>  $total,
-                'SISA_SEWA_BUS'     =>  $sisa,
+                'DP_BUS'            => $request->subtotal,
+                'total_payment'     => $total,
+                'SISA_SEWA_BUS'     => $sisa,
                 'STATUS_SEWA'       => $request->statussewa
         ]);
 
@@ -456,6 +456,17 @@ class DataTableController extends Controller
         ->update([
             'STATUS'=>0,
             'STATUS_SEWA'=>'DIBATALKAN'
+        ]);
+        return $result;
+        // UPDATE `sewa_bus` SET `STATUS`=0 WHERE time_to_sec(timediff(CURRENT_TIMESTAMP,created_at))  > 3600
+    }
+
+    public function update_bayar(){
+        $result=DB::table('sewa_bus')
+        ->join('pembayaran', 'pembayaran.ID_SEWA_BUS', '=', 'sewa_bus.ID_SEWA_BUS')
+        ->where('sewa_bus.STATUS_SEWA', '=', 'Booking')
+        ->update([
+            'STATUS_SEWA'=>'Sudah Bayar'
         ]);
         return $result;
         // UPDATE `sewa_bus` SET `STATUS`=0 WHERE time_to_sec(timediff(CURRENT_TIMESTAMP,created_at))  > 3600

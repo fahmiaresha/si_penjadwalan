@@ -5,6 +5,7 @@
 
 @foreach($sewa_bus as $sb)
 @endforeach
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <div class="hero-wrap hero-bread" style="background-image: url('asset/vegfoods/images/baground2.jpeg');">
       <div class="container">
@@ -83,6 +84,7 @@
                                     {{$sbc -> TUJUAN_SEWA}}
                                     </td>
                                     <td>{{$sbc -> QUANTITY}}</td>
+                                  
                                     <td>Rp. <?php echo number_format($sbc->PRICELIST_SEWA,'0',',','.'); ?></td>
                                     <td>Rp. <?php echo number_format($sbc->TOTAL,'0',',','.'); ?></td>
                                 </tr>
@@ -91,6 +93,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        
                         <div class="text-right">
                             <p>Total : Rp. <?php echo number_format($sb->total_payment,'0',',','.'); ?></p>
                             <p>DP (25%) : Rp. <?php echo number_format($sb->DP_BUS,'0',',','.'); ?></p>
@@ -202,6 +205,9 @@ var c = 0; max_count = 10; logout = true;
             console.log('press');
             resetTimer();
         }
+
+
+       
 
 </script>
 
